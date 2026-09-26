@@ -37,10 +37,10 @@ int main() {
     }
 
     
-    for (auto it = src_list.begin(); it != src_list.end(); it++)
+    for (std::list<int>::iterator it = src_list.begin(); it != src_list.end(); it++)
         new_list.push_back(*it);
 
-    for (const auto& val : src_deque)
+    for (const int& val : src_deque)
         new_deque.push_back(val);
 
     std::ofstream file("table.md");
@@ -48,8 +48,8 @@ int main() {
         file << "| IDX | src_array | src_vector | src_list | src_deque | new_array | new_vector | new_list | new_deque |\n";
         file << "|---|---|---|---|---|---|---|---|---|\n";
 
-        auto it_src_list = src_list.begin();
-        auto it_new_list = new_list.begin();
+        std::list<int>::iterator it_src_list = src_list.begin();
+        std::list<double>::iterator it_new_list = new_list.begin();
 
         for (int i = 0; i < M; i++) {
             file << "| " << i 
@@ -67,6 +67,5 @@ int main() {
         }
         file.close();
     }
-
 
 }
