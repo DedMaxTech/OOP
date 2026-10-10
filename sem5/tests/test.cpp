@@ -30,7 +30,7 @@ TEST(Hypotenuse, Random) {
     }
 }
 
-// Run these deliberately failing tests with --gtest_also_run_disabled_tests.
+// --gtest_also_run_disabled_tests
 TEST(DISABLED_FailureDemo, ExpectContinues) {
     EXPECT_EQ((Normal::hypotenuse<int, int>(3, 4)), 6);
     std::cout << "AFTER EXPECT: execution continues\n";

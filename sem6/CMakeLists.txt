@@ -1,3 +1,10 @@
+cmake_minimum_required(VERSION 3.16)
+project(algo LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+add_executable(class main.cpp class.h)
+
+
+
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -7,8 +14,4 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 add_executable(my_tests test.cpp)
-target_link_libraries(my_tests PRIVATE my_lib GTest::gtest_main)
-add_custom_target(run_tests
-    COMMAND $<TARGET_FILE:my_tests>
-    DEPENDS my_tests
-)
+target_link_libraries(my_tests PRIVATE GTest::gtest_main)
