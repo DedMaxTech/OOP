@@ -29,6 +29,7 @@ public:
     }
     ~Creature() {
         delete[] arr;
+        arr = nullptr;
     }
 
     Creature& operator=(const Creature& other) {
