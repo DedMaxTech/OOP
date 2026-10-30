@@ -64,8 +64,21 @@ int main(){
 
     Creature c1 ("Volkov Alexander", "The Wizard of Oz", 500);
     c1.print_creature();
+    std::cout << "--- Copy constructor ---\n";
+    Creature copy(c1);
+    copy.print_creature();
+    c1.print_creature();
+    std::cout << "--- Move constructor ---\n";
     Creature c2 = std::move(c1);
     c2.print_creature();
     c1.print_creature();
+    std::cout << "--- Copy assignment ---\n";
+    copy = c2;
+    copy.print_creature();
+    c2.print_creature();
+    std::cout << "--- Move assignment ---\n";
+    copy = std::move(c2);
+    copy.print_creature();
+    c2.print_creature();
     return 0;
 }
