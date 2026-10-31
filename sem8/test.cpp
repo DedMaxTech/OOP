@@ -6,6 +6,7 @@
 class ClassTest : public testing::Test {
 protected:
     Creature<> creature{"first", "Hero", 100};
+    Creature<> creature2{"first", "Hero", 100};
 
     // void SetUp() override {
     // }
