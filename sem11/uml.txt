@@ -1,0 +1,51 @@
+@startuml
+
+class Creature {
+  - id : const string
+  - name : string
+  - health : int
+  - arr : int*
+  + Creature()
+  + Creature(new_id : string, new_name : string, new_health : int)
+  + Creature(other : Creature)
+  + ~Creature()
+  + operator=(other : Creature) : Creature&
+  + get_id() : const string&
+  + get_name() : const string&
+  + get_health() : int
+  + set_name(new_name : string) : void
+  + set_health(new_health : int) : void
+}
+
+class Archer {
+  - arrows_quantity : int
+  + {static} max_arrows : const int = 30
+  + Archer(id : string, name : string, health : int, arrows : int)
+  + show_arrows_quantity() : void
+  + shoot() : void
+}
+
+class FlyingCreature {
+  - flight_altitude : double
+  + FlyingCreature(id : string, name : string, health : int, altitude : double)
+  + get_altitude() : double
+  + set_altitude(altitude : double) : void
+  + fly() : void
+}
+
+class FlyingArcher {
+  + FlyingArcher(id : string, name : string, health : int, arrows : int, altitude : double)
+  + show_status() : void
+}
+
+class Sniper <<final>> {
+  + show_weapon() : void
+}
+
+Creature <|-- Archer : virtual public
+Creature <|-- FlyingCreature : virtual public
+Archer <|-- FlyingArcher : public
+FlyingCreature <|-- FlyingArcher : public
+Archer <|-- Sniper : private
+
+@enduml
