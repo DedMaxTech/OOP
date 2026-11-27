@@ -1,5 +1,9 @@
+/// @file main.cpp
 #include "class.h"
 
+/// @brief Демонстрирует вызовы через Creature*.
+/// @note fight() виртуальный, info() — нет.
+/// @return 0 при завершении.
 int main() {
     const int SIZE = 3;
     Creature* squad[SIZE] = {
